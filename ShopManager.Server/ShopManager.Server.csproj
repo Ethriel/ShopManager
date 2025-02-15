@@ -35,6 +35,7 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\ShopManager.Database\ShopManager.Database.csproj" />
+    <ProjectReference Include="..\ShopManager.TestDbData\ShopManager.TestDbData.csproj" />
   </ItemGroup>
 
 </Project>

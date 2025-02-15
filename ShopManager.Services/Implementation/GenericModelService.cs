@@ -2,7 +2,7 @@
 using ShopManager.Services.Utility.ApiResult;
 using System.Linq.Expressions;
 
-namespace ShopManager.Services.Implementation
+namespace ShopManager.Services
 {
     public class GenericModelService<TEntity, TDto> : IGenericModelService<TEntity, TDto>
         where TEntity : class
