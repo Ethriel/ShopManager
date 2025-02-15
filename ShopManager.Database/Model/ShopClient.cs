@@ -12,12 +12,6 @@
             Purchases = new HashSet<ShopPurchase>();
         }
 
-        public bool IsBirthdayToday()
-        {
-            var today = DateTime.Today;
-            return today.Day == DateOfBirth.Day && today.Month == DateOfBirth.Month;
-        }
-
         public int GetAge()
         {
             var age = 0;
