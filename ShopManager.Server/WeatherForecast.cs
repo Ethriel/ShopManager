@@ -1,4 +1,4 @@
-namespace ShopService.Server
+namespace ShopManager.Server
 {
     public class WeatherForecast
     {

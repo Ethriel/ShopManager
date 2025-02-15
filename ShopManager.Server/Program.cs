@@ -1,15 +1,19 @@
 
 using Microsoft.EntityFrameworkCore;
-using ShopService.Database;
+using ShopManager.Database;
+using System.Text;
 
-namespace ShopService.Server
+namespace ShopManager.Server
 {
     public class Program
     {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Logging.AddConsole();
+            Console.OutputEncoding = Encoding.GetEncoding(builder.Configuration["ConsoleLogEncoding"]);
 
+            builder.Services.AddSingleton<IConfiguration>(provider => builder.Configuration);
             // Add services to the container.
 
             builder.Services.AddControllers();

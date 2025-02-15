@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using ShopService.Database.Model;
+using ShopManager.Database.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopService.Database
+namespace ShopManager.Database
 {
     public class ShopDbContext : DbContext
     {

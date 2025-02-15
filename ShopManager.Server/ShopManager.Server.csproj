@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <SpaRoot>..\shopservice.client</SpaRoot>
+    <SpaRoot>..\shopmanager.client</SpaRoot>
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl>
   </PropertyGroup>
@@ -28,10 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\shopservice.client\shopservice.client.esproj">
+    <ProjectReference Include="..\shopmanager.client\shopmanager.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\ShopService.Database\ShopService.Database.csproj" />
+    <ProjectReference Include="..\ShopManager.Database\ShopManager.Database.csproj" />
   </ItemGroup>
 
 </Project>

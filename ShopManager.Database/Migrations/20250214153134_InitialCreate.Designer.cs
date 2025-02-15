@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ShopService.Database;
+using ShopManager.Database;
 
 #nullable disable
 
-namespace ShopService.Database.Migrations
+namespace ShopManager.Database.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
     [Migration("20250214153134_InitialCreate")]

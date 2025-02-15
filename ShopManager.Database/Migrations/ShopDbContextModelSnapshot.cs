@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ShopService.Database;
+using ShopManager.Database;
 
 #nullable disable
 
-namespace ShopService.Database.Migrations
+namespace ShopManager.Database.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20250215103050_ChangedClientDateTypes")]
-    partial class ChangedClientDateTypes
+    partial class ShopDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

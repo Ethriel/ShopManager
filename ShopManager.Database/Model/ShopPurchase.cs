@@ -1,4 +1,4 @@
-﻿namespace ShopService.Database.Model
+﻿namespace ShopManager.Database.Model
 {
     public class ShopPurchase
     {
