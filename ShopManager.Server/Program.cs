@@ -20,7 +20,6 @@ namespace ShopManager.Server
             Console.OutputEncoding = Encoding.GetEncoding(builder.Configuration.GetValue<string>("ConsoleLogEncoding"));
 
             builder.Services.AddSingleton<IConfiguration>(provider => builder.Configuration);
-            // Add services to the container.
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -47,8 +46,8 @@ namespace ShopManager.Server
 
             app.UseTestDataServices();
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
 
             app.UseCors(
                 opt => opt.AllowAnyOrigin()

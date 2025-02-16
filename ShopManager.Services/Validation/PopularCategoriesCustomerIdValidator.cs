@@ -1,5 +1,4 @@
-﻿using Castle.Core.Resource;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace ShopManager.Services.Validation
 {
@@ -9,7 +8,7 @@ namespace ShopManager.Services.Validation
         {
             RuleFor(customerId => customerId)
                 .Must(customerId => customerId > 0)
-                .WithMessage("Customer Id is invalid. Must be greater that zero!");
+                .WithMessage("Customer Id is invalid. Must be greater than zero!");
         }
     }
 }

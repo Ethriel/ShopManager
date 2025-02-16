@@ -22,8 +22,6 @@ namespace ShopManager.Database
             {
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("Default"));
             }
-            //optionsBuilder.UseLazyLoadingProxies(false);
-
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

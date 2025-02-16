@@ -121,6 +121,7 @@ namespace ShopManager.Services.Implementation
                                                                 ClientFullName = group.Key.FullName,
                                                                 LastPurchaseDate = group.Max(p => DateTime.Parse(p.Date)).ToShortDateString()
                                                             })
+                                                            .DistinctBy(pd => pd.ClientFullName)
                                                             .ToArray();
 
                         return new ApiOkResult(data: purchasesData);

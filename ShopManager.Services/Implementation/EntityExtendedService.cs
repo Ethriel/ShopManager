@@ -20,13 +20,6 @@ namespace ShopManager.Services
 
         public T ReadById(object id)
         {
-            //var key = context.Model.FindEntityType(typeof(T))
-            //                   .FindPrimaryKey()
-            //                   .Properties
-            //                   .FirstOrDefault(x => x.Name == "Id");
-
-            //return query.FirstOrDefault(e => EF.Property<object>(e, key.Name) == id);
-
             return set.Find(id);
         }
 

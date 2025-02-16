@@ -1,2 +1,0 @@
-C:\Users\Kerfoer\source\repos\ShopService\shopservice.client\obj\Debug\shopservice.client.esproj.CoreCompileInputs.cache
-C:\Users\Kerfoer\source\repos\ShopManager\shopservice.client\obj\Debug\shopservice.client.esproj.CoreCompileInputs.cache

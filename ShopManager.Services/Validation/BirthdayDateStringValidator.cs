@@ -7,15 +7,17 @@ namespace ShopManager.Services.Validation
         public BirthdayDateStringValidator()
         {
             RuleFor(dateStr => dateStr)
-                .Must(dateStr => DateOnly.TryParse(dateStr, out DateOnly result))
-                .WithMessage("Date string for birthday customers is not valid!")
-                .Must(dateStr =>
+                .Custom((x, context) =>
                 {
-                    var date = DateOnly.Parse(dateStr);
-
-                    return DateOnly.FromDateTime(DateTime.Today) >= date;
-                })
-                .WithMessage("Date for birthday customers can't be a future date!");
+                    if (!DateOnly.TryParse(x, out DateOnly result))
+                    {
+                        context.AddFailure("Date string for birthday clients is not valid!");
+                    }
+                    else if (result > DateOnly.FromDateTime(DateTime.Today))
+                    {
+                        context.AddFailure("Date for birthday clients can't be a future date!");
+                    }
+                });
         }
     }
 }
