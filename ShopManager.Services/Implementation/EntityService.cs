@@ -7,11 +7,19 @@ namespace ShopManager.Services
     {
         protected readonly DbContext context;
         protected readonly DbSet<T> set;
+        //protected readonly IQueryable<T> query;
 
         public EntityService(DbContext context)
         {
             this.context = context;
             this.set = context.Set<T>();
+            //this.query = this.set;
+            //var navigations = context.Model.FindEntityType(typeof(T))
+            //                               .GetNavigations();
+            //foreach (var navigation in navigations)
+            //{
+            //    query = query.Include(navigation.Name);
+            //}
         }
         public bool Create(T entity)
         {

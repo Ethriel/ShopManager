@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopManager.Database", "Sho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopManager.Services", "ShopManager.Services\ShopManager.Services.csproj", "{0BC2183F-544F-43E4-B7EA-DF545C1E5498}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopManager.TestDbData", "ShopManager.TestDbData\ShopManager.TestDbData.csproj", "{F9CFB568-698A-4AE7-9D7A-FB686889ECEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopManager.TestDbData", "ShopManager.TestDbData\ShopManager.TestDbData.csproj", "{F9CFB568-698A-4AE7-9D7A-FB686889ECEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

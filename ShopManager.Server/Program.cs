@@ -1,13 +1,12 @@
-
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 using ShopManager.Database;
-using ShopManager.Services;
-using ShopManager.Services.Abstraction;
-using ShopManager.Services.Implementation;
-using ShopManager.TestDbData.TestData;
+using ShopManager.Server.Extensions;
+using ShopManager.Services.Utility;
 using System.Text;
+
 
 namespace ShopManager.Server
 {
@@ -17,6 +16,7 @@ namespace ShopManager.Server
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Logging.AddConsole();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             Console.OutputEncoding = Encoding.GetEncoding(builder.Configuration.GetValue<string>("ConsoleLogEncoding"));
 
             builder.Services.AddSingleton<IConfiguration>(provider => builder.Configuration);
@@ -26,39 +26,34 @@ namespace ShopManager.Server
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddDbContext<ShopDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+            builder.Services.AddAutoMapper(AutomapperUtility.GetAllAutomapperProfiles());
             builder.Services.AddScoped<DbContext, ShopDbContext>();
-            // Custom services
-            builder.Services.AddScoped(typeof(IEntityService<>), typeof(EntityService<>));
-            builder.Services.AddScoped(typeof(IEntityExtendedService<>), typeof(EntityExtendedService<>));
-            builder.Services.AddScoped(typeof(IMapperService<,>), typeof(MapperService<,>));
-            builder.Services.AddScoped(typeof(IGenericModelService<,>), typeof(GenericModelService<,>));
-            builder.Services.AddScoped<IShopService, ShopService>();
-
-            var isFirstRun = builder.Configuration.GetValue<bool>("IsFirstRun");
-            var isTestRun = builder.Configuration.GetValue<bool>("IsTestRun");
-
-            if (isFirstRun && isTestRun)
+            builder.Services.AddValidators();
+            builder.Services.AddAppServices();
+            builder.Services.AddFluentValidationAutoValidation(config =>
             {
-                // Test data services
-                builder.Services.AddScoped<TestCategories>();
-                builder.Services.AddScoped<TestProducts>();
-                builder.Services.AddScoped<TestClients>();
-                builder.Services.AddScoped<TestPurchases>();
-                builder.Services.AddScoped<TestDataService>();
-            }
+                config.DisableBuiltInModelValidation = true;
+                config.ValidationStrategy = SharpGrip.FluentValidation.AutoValidation.Mvc.Enums.ValidationStrategy.Annotations;
+                config.EnableBodyBindingSourceAutomaticValidation = true;
+                config.EnableFormBindingSourceAutomaticValidation = true;
+                config.EnableQueryBindingSourceAutomaticValidation = true;
+            });
+            builder.Services.AddCors();
+            builder.Services.AddTestDataServices(builder.Configuration);
 
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            if (isFirstRun && isTestRun)
-            {
-                var testDataService = app.Services.GetService<TestDataService>();
-                testDataService.CreateTestData();
-            }
+            app.UseTestDataServices();
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseCors(
+                opt => opt.AllowAnyOrigin()
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -81,7 +76,6 @@ namespace ShopManager.Server
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

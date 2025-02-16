@@ -53,7 +53,7 @@ namespace ShopManager.TestDbData.TestData
                 FullName = "Мельник Ірина Валеріївна",
                 RegistrationDate = DateOnly.FromDateTime(now.AddDays(-1))
             };
-            clientService.Create(client4);
+            clientService.Create(client5);
         }
     }
 }

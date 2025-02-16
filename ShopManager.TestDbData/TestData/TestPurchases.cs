@@ -42,87 +42,87 @@ namespace ShopManager.TestDbData.TestData
                 Number = 2
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase2);
 
             var purchase3 = new ShopPurchase
             {
-                ClientId = 1,
+                ClientId = 2,
                 Date = now.AddDays(-1),
                 Products = new HashSet<ShopProduct> { product4, product1 },
                 Number = 3
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase3);
 
             var purchase4 = new ShopPurchase
             {
-                ClientId = 1,
+                ClientId = 2,
                 Date = now.AddDays(-3),
                 Products = new HashSet<ShopProduct> { product1, product3 },
                 Number = 4
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase4);
 
             var purchase5 = new ShopPurchase
             {
-                ClientId = 1,
+                ClientId = 3,
                 Date = now.AddDays(-1),
                 Products = new HashSet<ShopProduct> { product4, product5 },
                 Number = 5
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase5);
 
             var purchase6 = new ShopPurchase
             {
-                ClientId = 1,
+                ClientId = 3,
                 Date = now.AddDays(-2),
                 Products = new HashSet<ShopProduct> { product2, product3 },
                 Number = 6
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase6);
 
             var purchase7 = new ShopPurchase
             {
-                ClientId = 1,
+                ClientId = 4,
                 Date = now.AddDays(-2),
                 Products = new HashSet<ShopProduct> { product1, product3 },
                 Number = 7
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase7);
 
             var purchase8 = new ShopPurchase
             {
-                ClientId = 1,
+                ClientId = 4,
                 Date = now.AddDays(-10),
                 Products = new HashSet<ShopProduct> { product2, product5 },
                 Number = 8
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase8);
 
             var purchase9 = new ShopPurchase
             {
-                ClientId = 1,
+                ClientId = 5,
                 Date = now.AddDays(-8),
                 Products = new HashSet<ShopProduct> { product3, product1 },
                 Number = 9
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase9);
 
             var purchase10 = new ShopPurchase
             {
-                ClientId = 1,
+                ClientId = 5,
                 Date = now.AddDays(-6),
                 Products = new HashSet<ShopProduct> { product5, product1 },
                 Number = 10
             };
 
-            purchaseService.Create(purchase1);
+            purchaseService.Create(purchase10);
         }
     }
 }

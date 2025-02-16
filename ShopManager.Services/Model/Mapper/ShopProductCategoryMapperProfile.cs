@@ -8,7 +8,7 @@ namespace ShopManager.Services.Model.Mapper
     {
         public ShopProductCategoryMapperProfile()
         {
-            CreateMap<ShopProduct, ShopProductCategoryDTO>();
+            CreateMap<ShopProductCategory, ShopProductCategoryDTO>();
             CreateMap<ShopProductCategoryDTO, ShopProductCategory>();
         }
     }

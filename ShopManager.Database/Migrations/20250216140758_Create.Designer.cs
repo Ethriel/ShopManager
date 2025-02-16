@@ -12,8 +12,8 @@ using ShopManager.Database;
 namespace ShopManager.Database.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20250215103050_ChangedClientDateTypes")]
-    partial class ChangedClientDateTypes
+    [Migration("20250216140758_Create")]
+    partial class Create
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,22 +28,7 @@ namespace ShopManager.Database.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ShopProductShopPurchase", b =>
-                {
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PurchasesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductsId", "PurchasesId");
-
-                    b.HasIndex("PurchasesId");
-
-                    b.ToTable("ShopProductShopPurchase");
-                });
-
-            modelBuilder.Entity("ShopService.Database.Model.ShopClient", b =>
+            modelBuilder.Entity("ShopManager.Database.Model.ShopClient", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,7 +51,7 @@ namespace ShopManager.Database.Migrations
                     b.ToTable("ShopClients");
                 });
 
-            modelBuilder.Entity("ShopService.Database.Model.ShopProduct", b =>
+            modelBuilder.Entity("ShopManager.Database.Model.ShopProduct", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,7 +80,7 @@ namespace ShopManager.Database.Migrations
                     b.ToTable("ShopProducts");
                 });
 
-            modelBuilder.Entity("ShopService.Database.Model.ShopProductCategory", b =>
+            modelBuilder.Entity("ShopManager.Database.Model.ShopProductCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -112,7 +97,7 @@ namespace ShopManager.Database.Migrations
                     b.ToTable("ProductCategories");
                 });
 
-            modelBuilder.Entity("ShopService.Database.Model.ShopPurchase", b =>
+            modelBuilder.Entity("ShopManager.Database.Model.ShopPurchase", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -138,22 +123,22 @@ namespace ShopManager.Database.Migrations
 
             modelBuilder.Entity("ShopProductShopPurchase", b =>
                 {
-                    b.HasOne("ShopService.Database.Model.ShopProduct", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
 
-                    b.HasOne("ShopService.Database.Model.ShopPurchase", null)
-                        .WithMany()
-                        .HasForeignKey("PurchasesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("PurchasesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductsId", "PurchasesId");
+
+                    b.HasIndex("PurchasesId");
+
+                    b.ToTable("ShopProductShopPurchase");
                 });
 
-            modelBuilder.Entity("ShopService.Database.Model.ShopProduct", b =>
+            modelBuilder.Entity("ShopManager.Database.Model.ShopProduct", b =>
                 {
-                    b.HasOne("ShopService.Database.Model.ShopProductCategory", "Category")
+                    b.HasOne("ShopManager.Database.Model.ShopProductCategory", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -162,9 +147,9 @@ namespace ShopManager.Database.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("ShopService.Database.Model.ShopPurchase", b =>
+            modelBuilder.Entity("ShopManager.Database.Model.ShopPurchase", b =>
                 {
-                    b.HasOne("ShopService.Database.Model.ShopClient", "Client")
+                    b.HasOne("ShopManager.Database.Model.ShopClient", "Client")
                         .WithMany("Purchases")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -173,12 +158,27 @@ namespace ShopManager.Database.Migrations
                     b.Navigation("Client");
                 });
 
-            modelBuilder.Entity("ShopService.Database.Model.ShopClient", b =>
+            modelBuilder.Entity("ShopProductShopPurchase", b =>
+                {
+                    b.HasOne("ShopManager.Database.Model.ShopProduct", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ShopManager.Database.Model.ShopPurchase", null)
+                        .WithMany()
+                        .HasForeignKey("PurchasesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ShopManager.Database.Model.ShopClient", b =>
                 {
                     b.Navigation("Purchases");
                 });
 
-            modelBuilder.Entity("ShopService.Database.Model.ShopProductCategory", b =>
+            modelBuilder.Entity("ShopManager.Database.Model.ShopProductCategory", b =>
                 {
                     b.Navigation("Products");
                 });

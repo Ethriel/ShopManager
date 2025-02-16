@@ -10,11 +10,13 @@ namespace ShopManager.Services.Model.Mapper
         {
             CreateMap<ShopClient, ShopClientDTO>()
                 .ForMember(dto => dto.DateOfBirth, options => options.MapFrom(m => m.DateOfBirth.ToShortDateString()))
-                .ForMember(dto => dto.RegistrationDate, options => options.MapFrom(m => m.RegistrationDate.ToShortDateString()));
+                .ForMember(dto => dto.RegistrationDate, options => options.MapFrom(m => m.RegistrationDate.ToShortDateString()))
+                .ForMember(dto => dto.Purchases, options => options.Ignore());
 
             CreateMap<ShopClientDTO, ShopClient>()
                 .ForMember(m => m.DateOfBirth, options => options.MapFrom(dto => DateOnly.Parse(dto.DateOfBirth)))
-                .ForMember(m => m.RegistrationDate, options => options.MapFrom(dto => DateOnly.Parse(dto.RegistrationDate)));
+                .ForMember(m => m.RegistrationDate, options => options.MapFrom(dto => DateOnly.Parse(dto.RegistrationDate)))
+                .ForMember(m => m.Purchases, options => options.Ignore());
         }
     }
 }

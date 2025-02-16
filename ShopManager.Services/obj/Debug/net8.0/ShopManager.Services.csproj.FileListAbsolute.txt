@@ -1,0 +1,16 @@
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\bin\Debug\net8.0\ShopManager.Services.deps.json
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\bin\Debug\net8.0\ShopManager.Services.dll
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\bin\Debug\net8.0\ShopManager.Services.pdb
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\bin\Debug\net8.0\ShopManager.Database.dll
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\bin\Debug\net8.0\ShopManager.Database.pdb
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopManager.Services.csproj.AssemblyReference.cache
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopManager.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopManager.Services.AssemblyInfoInputs.cache
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopManager.Services.AssemblyInfo.cs
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopManager.Services.csproj.CoreCompileInputs.cache
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopManager.Services.sourcelink.json
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopMana.52D804F7.Up2Date
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopManager.Services.dll
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\refint\ShopManager.Services.dll
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ShopManager.Services.pdb
+C:\Users\Kerfoer\source\repos\ShopManager\ShopManager.Services\obj\Debug\net8.0\ref\ShopManager.Services.dll

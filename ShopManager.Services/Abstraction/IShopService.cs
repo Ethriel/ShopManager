@@ -5,10 +5,12 @@ namespace ShopManager.Services.Abstraction
     public interface IShopService
     {
         IApiResult GetBirthdayPeople();
+        IApiResult GetBirthdayPeople(string dateString);
         Task<IApiResult> GetBirthdayPeopleAsync();
-        IApiResult GetLastClients(int days);
-        Task<IApiResult> GetLastClientsAsync(int days);
-        IApiResult GetClientsPopularCategories(object clientId);
-        Task<IApiResult> GetClientsPopularCategoriesAsync(object clientId);
+        Task<IApiResult> GetBirthdayPeopleAsync(string dateString);
+        IApiResult GetRecentClients(int days);
+        Task<IApiResult> GetRecentClientsAsync(int days);
+        IApiResult GetClientsPopularCategories(int clientId);
+        Task<IApiResult> GetClientsPopularCategoriesAsync(int clientId);
     }
 }

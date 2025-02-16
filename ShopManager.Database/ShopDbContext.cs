@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using ShopManager.Database.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShopManager.Database
 {
@@ -27,7 +22,7 @@ namespace ShopManager.Database
             {
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("Default"));
             }
-            optionsBuilder.UseLazyLoadingProxies();
+            //optionsBuilder.UseLazyLoadingProxies(false);
 
             base.OnConfiguring(optionsBuilder);
         }

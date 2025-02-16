@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ShopManager.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Create : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,8 +31,8 @@ namespace ShopManager.Database.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RegistrationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
+                    RegistrationDate = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,21 +86,21 @@ namespace ShopManager.Database.Migrations
                 name: "ShopProductShopPurchase",
                 columns: table => new
                 {
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    PurchaseId = table.Column<int>(type: "int", nullable: false)
+                    ProductsId = table.Column<int>(type: "int", nullable: false),
+                    PurchasesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ShopProductShopPurchase", x => new { x.ProductId, x.PurchaseId });
+                    table.PrimaryKey("PK_ShopProductShopPurchase", x => new { x.ProductsId, x.PurchasesId });
                     table.ForeignKey(
                         name: "FK_ShopProductShopPurchase_ShopProducts_ProductsId",
-                        column: x => x.ProductId,
+                        column: x => x.ProductsId,
                         principalTable: "ShopProducts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ShopProductShopPurchase_ShopPurchases_PurchasesId",
-                        column: x => x.PurchaseId,
+                        column: x => x.PurchasesId,
                         principalTable: "ShopPurchases",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -112,9 +112,9 @@ namespace ShopManager.Database.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShopProductShopPurchase_PurchaseId",
+                name: "IX_ShopProductShopPurchase_PurchasesId",
                 table: "ShopProductShopPurchase",
-                column: "PurchaseId");
+                column: "PurchasesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShopPurchases_ClientId",

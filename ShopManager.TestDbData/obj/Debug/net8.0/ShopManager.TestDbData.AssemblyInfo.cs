@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShopManager.TestDbData")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bf4a72a716e4fafe12d24097f30bd7dabb1afa1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d331b3e15b47d9cf98593b494b2a102ca8f99e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShopManager.TestDbData")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShopManager.TestDbData")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
